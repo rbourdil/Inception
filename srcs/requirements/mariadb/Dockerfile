@@ -1,6 +1,8 @@
-FROM debian:bullseye
+FROM debian:bullseye-slim
 
-RUN apt update \
-&& apt install mariadb-server -yq
+RUN apt-get update -yq \
+&& apt-get install mariadb-server -yq
+
+EXPOSE 3306
 
 CMD ["mysqld_safe"]
