@@ -23,13 +23,13 @@
 define( 'DB_NAME', 'wordpress' );
 
 /** Database username */
-define( 'DB_USER', 'rbourdil' );
+define( 'DB_USER', 'wordpress' );
 
 /** Database password */
 define( 'DB_PASSWORD', 'qwerty' );
 
 /** Database hostname */
-define( 'DB_HOST', 'mariadb1' );
+define( 'DB_HOST', 'mariadb' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -48,14 +48,15 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '&:E|w|>EEBo.&Eq=MBRRc7}SeJ$,973Ba=E!2$]nz6jU! 7s<}Rz>XRLN$CAbCbl');
-define('SECURE_AUTH_KEY',  'f`-5nvnd+pZtk0`=aK6VXJ-<FB>[P#|k54{AQq*-Lk ]/ws&Dvm-KP`T{pYG.)+]');
-define('LOGGED_IN_KEY',    'c,nxr:P22QFFHta$M-xN90^.&<<e{3J3`|Y9/,<A[-1|J7^Hx:p<Dp76w2o{GL+J');
-define('NONCE_KEY',        '+y$tB%e|jO,:P7zxc-$}Z|!v0g@6X9=Sg,O,jmU03HIHffAUsgm/Q,40V4+iDH@+');
-define('AUTH_SALT',        'FtyP.Uz}K&vRjM{U|FjRyh]<|%L)SX )YF`{|y.YG32aD6wE:+Y:GF_FU%:Gi+FR');
-define('SECURE_AUTH_SALT', 'OW0/};#qfs#xs w/Ce|,#Yo`ldYWJjMU<9Vh0j%_|J:O,{7z-ow9qBU^TmaW9[]V');
-define('LOGGED_IN_SALT',   '-L[g4&Xg?BI@;_]|53W{H/o@&gbhy-)9#T}Fz{BaUW+ nrG4bRovm_Z46m!@djUE');
-define('NONCE_SALT',       '@JJf3mVC43X#UE#f$nhr!P83^_U|eifuAG^H+vjiuv?(eM4.%y5` C}y-xSj>NyA');
+
+define('AUTH_KEY',         'h:3]7]EeWY46NPng][3-V2vOOA|</77$=.49{`{rZqm8!G}pPUE4Y*GIgh+:_r&h');
+define('SECURE_AUTH_KEY',  '$aZ!4JTIF||PfL:<TJ)Ib/)KZ?P7f</1p,I+-GL(nsp&b7=1%Dv]o++tAKE+b)f7');
+define('LOGGED_IN_KEY',    'b e6rCpP%is5-sEg(F2QXc,iUh7vIEr*|-A}Ism74O&V|^*}cnRK{bL^3Q90aD;m');
+define('NONCE_KEY',        '6*8]^LMDp5f_1e#!Tlx9ZTAeqq?!7b8:0/$>-D+?`[k 036Mxh+J?,43n(;ZqbgO');
+define('AUTH_SALT',        'GO>9fD|42MX-QcEaX-Q#DpE)5&ZfQ|FXji9@1p=b>-qafu:KE8%yaCCRYWXr&hdY');
+define('SECURE_AUTH_SALT', ']jKFrO$x:#Z5&=Ub|SD?^==2-2=>x~>a&?!Mdrk=O*##qx@+Jv.Wb@oPK+*F;FSR');
+define('LOGGED_IN_SALT',   '@?I*BBV-?0]PoG[*Oi+HIip&:ka-Xc;1_|u+B[>;0oxd0;cEIQ-4uT^i1lx[(>:Z');
+define('NONCE_SALT',       '#H16c5a(aIav{}is.roO%*;PFVZ~ Nf0;_|%fNbFg2k?qvS)Cq+mpb*Xqf(SC+,&');
 
 /**#@-*/
 

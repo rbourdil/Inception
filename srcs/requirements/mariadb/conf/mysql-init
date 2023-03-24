@@ -1,5 +1,0 @@
-CREATE DATABASE wordpress;
-CREATE USER 'rbourdil'@'wordpress1.mynet' IDENTIFIED BY 'qwerty';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER ON wordpress.* TO 'rbourdil'@'wordpress1.mynet';
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'qwertyroot';
-FLUSH PRIVILEGES;
