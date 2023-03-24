@@ -1,0 +1,38 @@
+services:
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    volumes:
+      - /home/rbourdil/data/mdb_data:/var/lib/mysql
+    networks:
+      - docnet
+    env_file: .env
+    restart: unless-stopped
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    volumes:
+      - /home/rbourdil/data/wp_data:/srv/www
+    networks:
+      - docnet
+    depends_on:
+      - mariadb
+    env_file: .env
+    restart: unless-stopped
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    volumes:
+      - /home/rbourdil/data/wp_data:/srv/www
+    networks:
+      - docnet
+    ports:
+      - 443:443
+    depends_on:
+      - mariadb
+      - wordpress
+    restart: unless-stopped
+
+networks:
+  docnet:
+    name: docnet

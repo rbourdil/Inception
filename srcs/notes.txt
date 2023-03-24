@@ -1,3 +1,0 @@
-1) remove skip-name-resolve for mariadb
-2) listen = 9000 for php-fpm
-3) keep fastcgi_pass wordpress:9000 for nginx and mount bind /srv/www in both wordpress and nginx volumes
