@@ -1,30 +1,23 @@
 #!/bin/bash
 
 if [[ ! -d /srv/www/wordpress ]]; then
-	chown www-data: /srv/www
-	curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www
 
-	cat >> /srv/www/wordpress/wp-config.php <<-EOF
-		<?php
-		define( 'DB_NAME', '${MARIADB_DATABASE}' );
-		define( 'DB_USER', '${MARIADB_USER}' );
-		define( 'DB_PASSWORD', '${MARIADB_PASSWORD}' );
-		define( 'DB_HOST', 'mariadb' );
-		define( 'DB_CHARSET', 'utf8' );
-		define( 'DB_COLLATE', '' );
-		define( 'AUTH_KEY', '${AUTH_KEY}');
-		define( 'SECURE_AUTH_KEY', '${SECURE_AUTH_KEY}');
-		define( 'LOGGED_IN_KEY', '${LOGGED_IN_KEY}');
-		define( 'NONCE_KEY', '${NONCE_KEY}');
-		define( 'AUTH_SALT', '${AUTH_SALT}');
-		define( 'SECURE_AUTH_SALT', '${SECURE_AUTH_SALT}');
-		define( 'LOGGED_IN_SALT', '${LOGGED_IN_SALT}');
-		define( 'NONCE_SALT', '${NONCE_SALT}');
-		\$table_prefix = 'wp_';
-		define( 'WP_DEBUG', false );
-		if ( ! defined( 'ABSPATH' ) ) { define( 'ABSPATH', __DIR__ . '/' ); }
-		require_once ABSPATH . 'wp-settings.php';
-		EOF
+	mkdir -p /srv/www/wordpress
+	chown -R www-data: /srv/www
+	sudo -u www-data wp core download --path=/srv/www/wordpress
+
+fi
+
+if [[ ! -f /srv/www/wordpress/wp-config.php ]]; then
+
+	sudo -u www-data wp config create --dbname=${MARIADB_DATABASE} --dbuser=${MARIADB_USER} --dbpass=${MARIADB_PASSWORD} --dbhost=mariadb --path=/srv/www/wordpress
+
+fi
+
+if ! sudo -u www-data wp core is-installed --path=/srv/www/wordpress; then
+
+	sudo -u www-data wp core install --url=localhost --title=rbourdil.42.fr --admin_user=${WP_ADMIN_USER} --admin_password=${WP_ADMIN_PASSWD} --admin_email="${WP_ADMIN_USER}@wp.fr" --path=/srv/www/wordpress
+	sudo -u www-data wp user create ${WP_COMMON_USER} "${WP_COMMON_USER}@wp.fr" --user_pass=${WP_COMMON_PASSWD} --path=/srv/www/wordpress
 
 fi
 
