@@ -12,6 +12,9 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 COPY ./conf/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
+HEALTHCHECK --interval=10s --timeout=5s --start-period=2m \
+	CMD ["/etc/init.d/php7.4-fpm", "status"]
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["php-fpm7.4", "--nodaemonize"]

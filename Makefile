@@ -18,4 +18,6 @@ fclean:
 	docker compose -p ${NAME} down --rmi all
 	sudo rm -rf /home/rbourdil/data/*
 
+re: fclean all
+
 .PHONY: all start stop clean fclean
